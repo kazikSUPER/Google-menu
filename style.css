@@ -1,0 +1,54 @@
+.menu{
+    background-color: darkred;
+    padding: 10px;
+    display: none;
+    width: fit-content;
+    overflow-y: scroll;
+    max-height: 350px;
+    z-index: -1;
+}
+.part1, .part2 {
+    display: none;
+}
+hr{
+    background-color: darkgray;
+    height: 2px;
+    width: 100%;
+}
+input[type=checkbox]{
+    opacity: 0;
+    position: absolute;
+    left: -100px;
+}
+img{
+    margin: 10px;
+    width: 75px;
+    height: 75px;
+}
+button{
+    margin: 10px;
+    width: 75px;
+    height: 75px;
+    background-image: url("Icons/menu.webp");
+    background-size: contain;
+    border: none;
+}
+button:hover, image:hover{
+    box-shadow: 0 0 15px gray;
+}
+button:active, image:active{
+    box-shadow: 0 0 15px gray;
+    background-color: white;
+}
+.line{
+    float: left;
+}
+input[type=checkbox]#show1:checked ~ .menu .part1, input[type=checkbox]:checked ~ .menu{
+    display: grid;
+}
+input[type=checkbox]#show2:checked + label + .part2{
+    display: grid;
+}
+input[type=checkbox]#show2:checked + label.show2{
+    display: none;
+}
