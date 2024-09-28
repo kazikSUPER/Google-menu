@@ -1,19 +1,87 @@
+.block{
+    display: block;
+    height: fit-content;
+}
 .menu{
-    background-color: darkred;
-    padding: 10px;
+    box-sizing: border-box;
+    top: 55px;
+    right: 5px;
+    position: absolute;
+    padding: 0;
+    justify-content: center;
+    text-align: center;
     display: none;
-    width: fit-content;
-    overflow-y: scroll;
-    max-height: 350px;
-    z-index: -1;
+    height: auto;
+    width: auto;
+    max-height: 400px;
+    max-width: 340px;
+    float: right;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+.menu::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 106px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    z-index: 101;
+    display: block;
+}
+a{
+    margin: auto 15px;
+    text-decoration: none;
+    color: gray;
+    font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.content li{
+    margin: auto 15px;
+    padding: 15px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.main{
+    float: right;
+    margin: 0;
+    align-items: center;
+    display: flex;
+}
+li{
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+}
+.icon_text{
+    display: block;
+    justify-content: center;
+    text-transform: capitalize;
+}
+:focus{
+    outline: 3px solid #007bff;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+.content{
+    display: block;
+    margin: 0;
+    padding: 0 15px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+.part1 li, .part2 li{
+    margin: 0 auto;
 }
 .part1, .part2 {
+    column-count: 3;
     display: none;
-}
-hr{
-    background-color: darkgray;
-    height: 2px;
-    width: 100%;
+    justify-content: center;
 }
 input[type=checkbox]{
     opacity: 0;
@@ -21,34 +89,36 @@ input[type=checkbox]{
     left: -100px;
 }
 img{
+    width: 35px;
+    height: 35px;
+}
+.main img{
     margin: 10px;
-    width: 75px;
-    height: 75px;
+    width: 25px;
+    height: 25px;
 }
-button{
-    margin: 10px;
-    width: 75px;
-    height: 75px;
-    background-image: url("Icons/menu.webp");
-    background-size: contain;
-    border: none;
+li:hover{
+    background-color: lavender;
 }
-button:hover, image:hover{
-    box-shadow: 0 0 15px gray;
-}
-button:active, image:active{
-    box-shadow: 0 0 15px gray;
+li:active{
     background-color: white;
 }
-.line{
-    float: left;
+.show2{
+    text-align: center;
+    background-color: lavender;
 }
-input[type=checkbox]#show1:checked ~ .menu .part1, input[type=checkbox]:checked ~ .menu{
-    display: grid;
+input[type=checkbox]#show1:checked ~ header .menu .part1{
+    display: block;
 }
-input[type=checkbox]#show2:checked + label + .part2{
-    display: grid;
+input[type=checkbox]#show1:checked ~ header .menu{
+    display: block;
 }
-input[type=checkbox]#show2:checked + label.show2{
+input[type=checkbox]#show2:checked ~ header .menu .part2{
+    display: block;
+}
+input[type=checkbox]#show2:checked ~ header .menu{
+    overflow-y: auto;
+}
+input[type=checkbox]#show2:checked ~ header .menu label.show2{
     display: none;
 }
