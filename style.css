@@ -104,6 +104,7 @@ li:active{
     background-color: white;
 }
 .show2{
+    display: block;
     text-align: center;
     background-color: lavender;
 }
